@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Actividad interactiva para jóvenes sobre información, sorpresa e incertidumbre." />
+  <title>Misión: Cazadores de Información</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">🎮 RETO EN EQUIPOS · 20–30 MINUTOS</span>
+        <h1>Misión: Cazadores de Información</h1>
+        <p>
+          Descubre qué mensajes realmente cambian lo que sabemos.
+          Cuanto menos esperado sea un mensaje, mayor será su nivel de sorpresa.
+        </p>
+      </div>
+      <div class="score-card" aria-live="polite">
+        <span>PUNTOS</span>
+        <strong id="score">0</strong>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">RONDA 1 · RADAR DE SORPRESA</span>
+          <h2>¿Cuánta información trae cada mensaje?</h2>
+        </div>
+        <p>Selecciona un nivel para cada tarjeta.</p>
+      </div>
+
+      <div id="cards" class="card-grid"></div>
+
+      <div class="actions">
+        <button id="check1" class="primary">Comprobar ronda</button>
+        <button id="reset1" class="secondary">Reiniciar</button>
+      </div>
+      <p id="feedback1" class="feedback" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <span class="eyebrow">RONDA 2 · ELIMINA POSIBILIDADES</span>
+      <h2>El jefe secreto está escondido… ¿cuánto aprendiste?</h2>
+      <p class="muted">
+        Antes del mensaje hay 4 lugares posibles: torre, bosque, cueva y laboratorio.
+        Pulsa un mensaje y observa cómo desaparece la incertidumbre.
+      </p>
+
+      <div class="places" id="places">
+        <article class="place" data-place="torre"><span>🗼</span><strong>Torre</strong></article>
+        <article class="place" data-place="bosque"><span>🌲</span><strong>Bosque</strong></article>
+        <article class="place" data-place="cueva"><span>🪨</span><strong>Cueva</strong></article>
+        <article class="place" data-place="lab"><span>🧪</span><strong>Laboratorio</strong></article>
+      </div>
+
+      <div class="clues">
+        <button class="clue" data-eliminate="bosque">💬 “No está en el bosque.”</button>
+        <button class="clue" data-eliminate="torre,cueva">🔎 “No está en la torre ni en la cueva.”</button>
+        <button class="clue" data-eliminate="bosque,torre,cueva">⚡ “¡Está en el laboratorio!”</button>
+      </div>
+
+      <div id="uncertainty" class="status" aria-live="polite">
+        🌪️ Incertidumbre inicial: <strong>4 posibilidades abiertas.</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <span class="eyebrow">RONDA 3 · CREA EL MENSAJE LEGENDARIO</span>
+      <h2>Inventa un mensaje que cambie la partida</h2>
+      <p class="muted">
+        Imagina un videojuego, una red social, el colegio o tu grupo de amigos.
+        Escribe un mensaje muy esperado y otro totalmente inesperado.
+      </p>
+
+      <div class="input-grid">
+        <label>
+          😴 Mensaje predecible
+          <textarea id="predictable" rows="4" maxlength="180"
+            placeholder="Ej.: Mañana hay clase a las 8..."></textarea>
+        </label>
+
+        <label>
+          🤯 Mensaje inesperado
+          <textarea id="surprising" rows="4" maxlength="180"
+            placeholder="Ej.: ¡La excursión será en una estación espacial!..."></textarea>
+        </label>
+      </div>
+
+      <button id="judge" class="primary">Evaluar mi dupla</button>
+      <div id="creativeFeedback" class="feedback" aria-live="polite"></div>
+    </section>
+
+    <section class="panel final-panel">
+      <h2>🏁 Cierre para conversar en grupo</h2>
+      <div class="questions">
+        <div><strong>1.</strong> ¿Qué hizo que un mensaje fuera más sorprendente?</div>
+        <div><strong>2.</strong> ¿Qué mensaje eliminó más posibilidades?</div>
+        <div><strong>3.</strong> ¿Más sorpresa siempre significa información más útil?</div>
+      </div>
+      <p class="takeaway">
+        <strong>Idea para llevarse:</strong> información no es simplemente “recibir datos”;
+        es cambiar lo que creíamos posible o probable.
+      </p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
